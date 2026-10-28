@@ -18,10 +18,18 @@
 
     mysqli_stmt_bind_param($stmt, "sss", $klassekode, $klassenavn, $studiumkode);
 
-    if (mysqli_stmt_execute($stmt)) {
-      $melding = "Klassen er registrert";
-    } else {
-      $melding = "Klassen kunne ikke registreres";
+    try {
+      mysqli_stmt_execute($stmt);
+      $melding = "Klassen er registrert.";
+    }
+    catch (mysqli_sql_exception $e) {
+
+      if ($e->getCode() == 1062) {
+        $melding = "Klassen er allerede registrert.";
+      }
+      else {
+        $melding = "Klassen kunne ikke registreres.";
+      }
     }
 
     mysqli_stmt_close($stmt);
