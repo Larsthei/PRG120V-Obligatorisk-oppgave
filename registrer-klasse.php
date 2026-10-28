@@ -1,4 +1,3 @@
 <?php
-    echo "PHP fungerer!";
-    phpinfo();
+    print ("<h3>Registrer klasse</h3>");
 ?>
