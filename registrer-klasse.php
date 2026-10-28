@@ -1,7 +1,7 @@
 <?php
     print ("<h3>Registrer klasse</h3>");
 
-    include "db-tilkobling.php";
+    include "dbphp";
 
     print ("<p>Databaseforbindelsen fungerer!</p>");
 ?>
