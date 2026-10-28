@@ -38,9 +38,9 @@
        mysqli_stmt_close($stmt);
     }
 
-    sqlSetning = "SELECT * FROM klasse ORDER BY klassekode";
+    $sqlSetning = "SELECT * FROM klasse ORDER BY klassekode";
 
-    sqlResultat = mysqli_query($db, $sqlSetning);
+    $sqlResultat = mysqli_query($db, $sqlSetning);
 ?>
 
 <form method="post" action="">
