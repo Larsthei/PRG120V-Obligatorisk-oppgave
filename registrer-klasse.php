@@ -11,8 +11,8 @@
 
     $sqlSetning= "INSERT INTO klasse (klassekode, klassenavn, studiumkode) 
     VALUES (?, ?, ?);";
-    
-    $stmt = mysqli_prepare($db, $sqlsetning);
+
+    $stmt = mysqli_prepare($db, $sqlSetning);
     mysqli_stmt_bind_param($stmt, "sss", $klassekode, $klassenavn, $studiumkode);
 
     if (mysqli_stmt_execute($stmt)) {
