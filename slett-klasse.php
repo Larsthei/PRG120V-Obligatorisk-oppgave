@@ -33,6 +33,7 @@
       else {
         $melding = "Klassen kunne ikke slettes.";
       
+      }
     }
     
        mysqli_stmt_close($stmt);
