@@ -1,8 +1,8 @@
 <?php
-  $host = "DATABASERVERT";
-  $username = "DATABASEBRUKER";
-  $password = "DATABASEPASSORD";
-  $database = "DATABASENAVN";
+  $host = "b-studentsql-1.usn.no";
+  $username = getenv("DB_USER");
+  $password = getenv("DB_PASSWORD");
+  $database = getenv("DB_DATABASE");
 
   $db = mysqli_connect($host, $username, $password, $database);
 
