@@ -10,7 +10,7 @@
     die("Kunne ikke koble til databasen");
   }
 
-  mysqli_set_charset($db, utf8mb4);
+  mysqli_set_charset($db, "utf8mb4");
 ?>
 
 
