@@ -3,6 +3,8 @@
 
   require_once("db.php");
 
+  $melding = "";
+
   if (isset($_POST["registrer"])) {
 
     $klassekode = $_POST["klassekode"];
@@ -13,12 +15,13 @@
     VALUES (?, ?, ?);";
 
     $stmt = mysqli_prepare($db, $sqlSetning);
+
     mysqli_stmt_bind_param($stmt, "sss", $klassekode, $klassenavn, $studiumkode);
 
     if (mysqli_stmt_execute($stmt)) {
-      print ("Klassen er registrert");
+      $melding = "Klassen er registrert";
     } else {
-      print ("Klassen kunne ikke registreres");
+      $melding = "Klassen kunne ikke registreres";
     }
 
     mysqli_stmt_close($stmt);
@@ -32,3 +35,9 @@
 
   <input type="submit" name="registrer" value="Registrer klasse">
 </form>
+
+<?php
+if ($melding != "") {
+  print ("<p>$melding</p>");
+}
+?>
