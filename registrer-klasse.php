@@ -1,9 +1,28 @@
 <?php
-    print ("<h3>Registrer klasse</h3>");
+  print ("<h3>Registrer klasse</h3>");
 
-    include ("db.php");
+  require_once("db.php");
 
-    print ("<p>Databaseforbindelsen fungerer!</p>");
+  if (isset($_POST["registrer"])) {
+
+    $klassekode = $_POST["klassekode"];
+    $klassenavn = $_POST["klassenavn"];
+    $studiumkode = $_POST["studiumkode"];
+
+    $sqlSetning= "INSERT INTO klasse (klassekode, klassenavn, studiumkode) 
+    VALUES (?, ?, ?);";
+    
+    $stmt = mysqli_prepare($db, $sqlsetning);
+    mysqli_stmt_bind_param($stmt, "sss", $klassekode, $klassenavn, $studiumkode);
+
+    if (mysqli_stmt_execute($stmt)) {
+      print ("Klassen er registrert");
+    } else {
+      print ("Klassen kunne ikke registreres");
+    }
+
+    mysqli_stmt_close($stmt);
+    }
 ?>
 
 <form method="post" action="">
