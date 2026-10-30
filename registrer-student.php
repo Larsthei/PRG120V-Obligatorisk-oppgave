@@ -18,7 +18,7 @@
 
       $stmt = mysqli_prepare($db, $sqlsetning);
 
-      $mysqli_stmt_bind_param($stmt, "ssss", $brukernavn, $fornavn, $etternavn, $klassekode);
+      mysqli_stmt_bind_param($stmt, "ssss", $brukernavn, $fornavn, $etternavn, $klassekode);
 
       try {
         mysqli_stmt_execute($stmt);
