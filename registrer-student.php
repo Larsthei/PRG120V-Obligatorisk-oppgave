@@ -30,7 +30,7 @@
           $melding = "Studenten er allerede registrert.";
         }
         else {
-          $melding = "Studenten kunne ikke registreres.";
+          $melding = "Databasefeil: " . $e->getMessage();
         }
       }
 
