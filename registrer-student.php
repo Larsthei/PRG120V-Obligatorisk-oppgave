@@ -12,6 +12,11 @@
       $etternavn = trim($_POST["etternavn"]);
       $klassekode = trim($_POST["klassekode"]);
 
+      if (strlen($brukernavn) > 7) {
+        $melding = "Brukernavnet kan ikke være lengre enn 7 tegn.";
+      }
+      else {
+
       $sqlsetning = "INSERT INTO student
                      (brukernavn, fornavn, etternavn, klassekode)
                      VALUES (?, ?, ?, ?)";
@@ -30,11 +35,12 @@
           $melding = "Studenten er allerede registrert.";
         }
         else {
-          $melding = "Databasefeil: " . $e->getMessage();
+          $melding = "Studenten kunne ikke registreres.";
         }
       }
 
       mysqli_stmt_close($stmt);
+    }
     }
 
     $sqlSetning = "SELECT * FROM klasse ORDER BY klassekode";
