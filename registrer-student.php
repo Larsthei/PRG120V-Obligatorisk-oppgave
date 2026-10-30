@@ -13,8 +13,8 @@
       $klassekode = trim($_POST["klassekode"]);
 
       $sqlsetning = "INSERT INTO student
-      (brukernavn, fornavn, etternavn, klassekode)
-      VALUES (?, ?, ?, ?;";
+                     (brukernavn, fornavn, etternavn, klassekode)
+                     VALUES (?, ?, ?, ?)";
 
       $stmt = mysqli_prepare($db, $sqlsetning);
 
