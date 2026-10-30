@@ -12,8 +12,8 @@
       $etternavn = trim($_POST["etternavn"]);
       $klassekode = trim($_POST["klassekode"]);
 
-      if (strlen($brukernavn) > 7) {
-        $melding = "Brukernavnet kan ikke være lengre enn 7 tegn.";
+      if (strlen($brukernavn) > 9) {
+        $melding = "Brukernavnet kan ikke være lengre enn 9 tegn.";
       }
       else {
 
@@ -53,7 +53,7 @@
 <form method="post" action="">
 
   Brukernavn
-  <input type="text" name="brukernavn" maxlenght="7" required>
+  <input type="text" name="brukernavn" maxlength="9" required>
   <br>
 
   Fornavn
